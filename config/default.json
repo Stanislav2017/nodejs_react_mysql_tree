@@ -1,0 +1,10 @@
+{
+    "port": 5000,
+    "db_host": "localhost",
+    "db_port": 3306,
+    "db_dialect": "mysql",
+    "db_name": "node",
+    "db_user": "root",
+    "db_password": "password",
+    "token_secret": "Simple sercret token"
+}

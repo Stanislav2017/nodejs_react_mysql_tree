@@ -1,0 +1,6 @@
+@import "~materialize-css/dist/css/materialize.min.css";
+
+.wrapper {
+    margin: 0 auto;
+    width: 600px;
+}

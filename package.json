@@ -1,0 +1,33 @@
+{
+  "name": "nodejs_react_tree_project",
+  "version": "1.0.0",
+  "description": "node.js express react mysql tree",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [
+    "node.js",
+    "react",
+    "mysql"
+  ],
+  "author": "Mikheykin Stanislav",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^3.3.2",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "react-loader-spinner": "^3.1.14",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  }
+}
