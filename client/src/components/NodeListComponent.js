@@ -5,10 +5,30 @@ import PropTypes from 'prop-types';
 
 function NodeListComponent({ nodes, removeNode, addNode }) {
     if (!nodes.length) {
-        return (<p className="center">Nodes not found!</p>);
+        return (
+            <div>
+                <ul className="collection">
+                    <li className="collection-item">Node List
+                        <i className="secondary-content" ><span onClick={() => addNode()}>Add Main Node</span></i>
+                    </li>
+                    <li>
+                        <p className="center">Nodes not found!</p>
+                    </li>
+                </ul>
+                
+            </div>
+        );
     }
+
     return(
-        <TreeComponent nodes={nodes} removeNode={removeNode} addNode={addNode} />
+        <div>
+            <ul className="collection">
+                <li className="collection-item">Node List
+                <i className="secondary-content" ><span onClick={() => addNode()}>Add Main Node</span></i>
+                </li>
+            </ul>
+            <TreeComponent nodes={nodes} removeNode={removeNode} addNode={addNode} />
+        </div>
     );  
 }
 

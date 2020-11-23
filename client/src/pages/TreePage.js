@@ -32,10 +32,14 @@ export const TreePage = () => {
         } catch (e) {}
     }, [ token, request ]);
 
-    const addNode = (id) => {
+    const addNode = (id = null) => {
         let name = prompt('Enter node name', 'Branch default');
+        let url = '/api/node/create';
+        if (id) {
+            url += `?parent=${id}`;
+        }
         if (name) {
-            request(`/api/node/create?parent=${id}`, 'POST', { name }, { Authorization: `Bearer ${token}` }).then(() => {
+            request(url, 'POST', { name }, { Authorization: `Bearer ${token}` }).then(() => {
                 fetchNodes();
             });
         }
