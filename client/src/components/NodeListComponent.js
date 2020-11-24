@@ -5,31 +5,19 @@ import TreeComponent from './TreeComponent';
 
 
 function NodeListComponent({ nodes }) {
-    const { removeNode, addNode } = useContext(Context);
-    if (!nodes.length) {
-        return (
-            <div>
-                <ul className="collection">
-                    <li className="collection-item">Node List
-                        <i className="secondary-content" ><span onClick={() => addNode()}>Add Main Node</span></i>
-                    </li>
-                    <li>
-                        <p className="center">Nodes not found!</p>
-                    </li>
-                </ul>
-                
-            </div>
-        );
-    }
-
+    const { addNode } = useContext(Context);
     return(
         <div>
             <ul className="collection">
                 <li className="collection-item">Node List
-                <i className="secondary-content" ><span onClick={() => addNode()}>Add Main Node</span></i>
+                    <i className="secondary-content" ><span onClick={addNode.bind(null, null)}>Add Main Node</span></i>
                 </li>
             </ul>
-            <TreeComponent nodes={nodes} removeNode={removeNode} addNode={addNode} />
+            {
+                !nodes.length ? 
+                <p className="center">Nodes not found!</p> : 
+                <TreeComponent nodes={nodes} />
+            }
         </div>
     );  
 }

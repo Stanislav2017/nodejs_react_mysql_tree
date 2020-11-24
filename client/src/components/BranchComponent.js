@@ -8,7 +8,9 @@ function BranchComponent({ node }) {
         <li className="collection-item">
             <ul className="collection">
                 <li className="collection-item">{ node.name } 
-                <i className="secondary-content" ><span onClick={() => removeNode(node.id)}>Remove</span> | <span onClick={() => addNode(node.id)}>Add</span></i>
+                    <i className="secondary-content" >
+                        <span onClick={removeNode.bind(null, node.id)}>Remove</span> | <span onClick={addNode.bind(null, node.id)}>Add</span>
+                    </i>
                 </li>
             </ul>
         </li>
