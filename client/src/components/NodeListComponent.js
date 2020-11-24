@@ -1,9 +1,11 @@
-import React from 'react';
-import TreeComponent from './TreeComponent';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import Context from '../Context';
+import TreeComponent from './TreeComponent';
 
 
-function NodeListComponent({ nodes, removeNode, addNode }) {
+function NodeListComponent({ nodes }) {
+    const { removeNode, addNode } = useContext(Context);
     if (!nodes.length) {
         return (
             <div>

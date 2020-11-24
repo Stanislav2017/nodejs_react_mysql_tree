@@ -7,9 +7,8 @@ const list = async (req, res, next) => {
 };
 
 const create = async (req, res, next) => {
-    const parent = req.query.parent || null;
+    const parent = req.body.parent || null;
     const { name } = req.body;
-    console.log(req.body);
     if (!name) {
         return res.status(422).json({ message: 'Field "name" must be required' });
     }

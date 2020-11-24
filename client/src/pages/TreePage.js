@@ -3,6 +3,7 @@ import { AuthContext } from '../context/AuthContext';
 import { useHttp } from '../hooks/http.hooks';
 import Loader from 'react-loader-spinner';
 import NodeListComponent from '../components/NodeListComponent';
+import Context from '../Context';
 
 export const TreePage = () => {
     const [ tree, setTree ] = useState([]);
@@ -30,12 +31,12 @@ export const TreePage = () => {
 
     const addNode = (id = null) => {
         let name = prompt('Enter node name', 'Branch default');
-        let url = '/api/node/create';
-        if (id) {
-            url += `?parent=${id}`;
-        }
         if (name) {
-            request(url, 'POST', { name }, { Authorization: `Bearer ${token}` }).then(() => {
+            let body = { name };
+            if (id) {
+                body['parent'] = id;
+            }
+            request('/api/node/create', 'POST', body, { Authorization: `Bearer ${token}` }).then(() => {
                 fetchNodes();
             });
         }
@@ -50,7 +51,11 @@ export const TreePage = () => {
     return(
         <>
             {
-                loading ? <Loader /> : <NodeListComponent nodes={tree} removeNode={removeNode} addNode={addNode} />
+                loading ?
+                    <Loader /> :
+                    <Context.Provider value={{ removeNode, addNode }} >
+                        <NodeListComponent nodes={tree} />
+                    </Context.Provider>
             }
         </>
     );

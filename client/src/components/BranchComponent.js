@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import Context from '../Context';
 
-function BranchComponent({ node, removeNode, addNode }) {
+function BranchComponent({ node }) {
+    const { removeNode, addNode } = useContext(Context);
     return(
         <li className="collection-item">
             <ul className="collection">

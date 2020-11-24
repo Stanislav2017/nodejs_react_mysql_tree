@@ -1,9 +1,10 @@
-import React from 'react';
-import BranchComponent from './BranchComponent';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import Context from '../Context';
+import BranchComponent from './BranchComponent';
 
-
-function TreeComponent({ nodes, removeNode, addNode }) {
+function TreeComponent({ nodes }) {
+    const { removeNode, addNode } = useContext(Context);
     return(
         <ul className="collection">
             {nodes.map((node, i) => {
