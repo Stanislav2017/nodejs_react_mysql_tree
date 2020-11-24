@@ -9,7 +9,7 @@ const sequelize = new Sequelize(config.get("db_name"), config.get("db_user"), co
 });
 
 const Node = NodeModel(sequelize, Sequelize);
-Node.hasMany(Node, { foreignKey: 'parent' });
+Node.hasMany(Node, { foreignKey: 'parent', onDelete: 'cascade' });
 
 // sequelize.sync({ force: true }).then(() => {
 //     console.log(`Database & tables created!`)

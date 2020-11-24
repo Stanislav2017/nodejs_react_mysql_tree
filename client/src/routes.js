@@ -16,10 +16,10 @@ export const useRoutes = (isAuthenticated) => {
     }
     return(
         <Switch>
-            <Route path="/" exact>
+            <Route path="/login" exact>
                 <IndexPage />
             </Route>
-            <Redirect to="/" />
+            <Redirect to="/login" />
         </Switch>
     );
 };
